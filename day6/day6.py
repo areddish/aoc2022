@@ -9,13 +9,12 @@ tests = [
 def find_marker(message, marker_length=4):
     start = 0
     i = marker_length
-    marker = message[start:i]
     while True:
-        if len(set(marker) & set(marker)) == marker_length:
+        if len(set(message[start:i])) == marker_length:
             return i
         start += 1
         i += 1
-        marker = message[start:i]
+
 
 # Tests to validate cases
 for t in tests:
