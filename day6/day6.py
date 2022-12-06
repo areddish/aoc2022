@@ -8,7 +8,6 @@ tests = [
 
 def find_marker(message, marker_length=4):
     cur = 0
-    i = marker_length
     while cur < len(message) - marker_length:
         end = cur+marker_length
         if len(set(message[cur:end])) == marker_length:
