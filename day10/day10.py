@@ -13,6 +13,9 @@ with open("day10.txt") as file:
 
     for instr in data:
         for inc in range(1 if instr == "noop" else 2):
+            # Part 2 - render crt        
+            crt[cycle] = "#" if is_lit(cycle, X) else "."
+
             cycle += 1
             if inc == 1:
                 X += int(instr.split(" ")[1])
@@ -21,10 +24,8 @@ with open("day10.txt") as file:
             if cycle in [20,60,100,140,180,220]:
                 results.append(cycle * X)
 
-            # Part 2 - render crt
-            if cycle < len(crt):
-                crt[cycle] = "#" if is_lit(cycle, X) else "."
 
+    print(cycle)
     # render the crt
     for j in range(6):
         for i in range(40):
